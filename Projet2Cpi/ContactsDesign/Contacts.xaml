@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Projet2Cpi.Contacts"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projet2Cpi"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"        
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="630" d:DesignWidth="1013">
+    <Grid Margin="0,3,0,-3">
+        <Grid HorizontalAlignment="Left" Height="630" Width="500"  Margin="40,0,0,0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="titrePage" Text="Contacts" FontSize="27" FontWeight="DemiBold" Margin="0,17,0,0" Height="49"/>
+                <Border  Cursor="Hand" x:Name="ButtonAjouterContact" MouseLeftButtonDown="ButtonAjouterContact_MouseLeftButtonDown" Mouse.MouseEnter="Button_MouseEnter" Mouse.MouseLeave="Button_MouseLeave"  CornerRadius="20" Width="144" Height="36" Margin="0,0,27,0" Background="#FF6866F7">
+                    <Border.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Background="Black" SnapsToDevicePixels="True" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}" Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.OpacityMask>
+                    <TextBlock VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Text="+ Ajouter un contact" FontWeight="Light" FontFamily="LemonMilk"/>
+                </Border>
+                <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="10 20 0 0" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="searchButton" Click="searchButton_Click" Style="{DynamicResource MaterialDesignToolButton}">
+                            <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                        </Button>
+                        <TextBox x:Name="searchBarContacts" TextChanged="searchBarContacts_TextChanged"  Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Recherche" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" MinWidth="200" VerticalAlignment="Center" />
+                        <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="2">
+                            <materialDesign:PackIcon Kind="Microphone" Opacity=".56" Margin="8 0 0 0" />
+                        </Button>
+                    </Grid>
+                </materialDesign:ColorZone>
+                <ListView x:Name="contactsListView" PreviewMouseLeftButtonUp="listView_Click" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="0,20,0,0" Height="430">
+                    
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="560,0,40,0" Height="530" >
+            <local:UnContact x:Name="contactCarteDetails"/>
+
+        </Grid>
+
+    </Grid>
+
+</UserControl>

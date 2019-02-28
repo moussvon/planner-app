@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="Projet2Cpi.Signup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Projet2Cpi"
+             mc:Ignorable="d"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"        
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             Height="520" Width="400"  Visibility="Visible">
+
+    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth2" Width="400" Height="520" >
+
+        <Grid HorizontalAlignment="Center" Height="520"  Width="400" Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.2*"/>
+            </Grid.RowDefinitions>
+            <!--Label : Créer une nouvelle compte-->
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="27" Margin="10,0,0,0" TextWrapping="Wrap"  Width="236" FontSize="16" FontWeight="Medium" Foreground="#FF6866F7"><Run Text="Créer un nouveau compte :"/></TextBlock>
+
+
+            <!--User Name-->
+            <TextBox x:Name="TextBoxUserFirstname" Grid.Row="1" Margin="20,0,0,0" materialDesign:HintAssist.Hint="Nom"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Height="38"  TextWrapping="Wrap" VerticalAlignment="Top" Width="352" CaretBrush="#FF6866F7" />
+            <TextBox x:Name="TextBoxUserSecondname" Grid.Row="2" Margin="20,0,0,0" materialDesign:HintAssist.Hint="Prénom"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Height="38"  TextWrapping="Wrap" VerticalAlignment="Top" Width="352" CaretBrush="#FF6866F7"/>
+            <TextBox x:Name="TextBoxUsername" Grid.Row="3" Margin="20,0,0,0" materialDesign:HintAssist.Hint="Nom d'utilisateur"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Height="38"  TextWrapping="Wrap" VerticalAlignment="Top" Width="352" CaretBrush="#FF6866F7"/>
+            <PasswordBox x:Name="PasswordBoxMotdepasse" Grid.Row="4" Margin="20,0,0,0"     materialDesign:HintAssist.Hint="Mot de passe" 
+                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" HorizontalAlignment="Left" Height="38"   VerticalAlignment="Top" Width="352" CaretBrush="#FF6866F7" />
+            <PasswordBox x:Name="PasswordBoxMotdepasseC" Grid.Row="5" Margin="20,0,0,0"     materialDesign:HintAssist.Hint="Confirmez le mot de passe" 
+                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" HorizontalAlignment="Left" Height="38"   VerticalAlignment="Top" Width="352" CaretBrush="#FF6866F7" />
+            <!-- TODO : picture selection -->
+            <TextBox x:Name="TextBoxEmail" Grid.Row="7" Margin="20,0,0,0" materialDesign:HintAssist.Hint="Email"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Height="38"  TextWrapping="Wrap" VerticalAlignment="Top" Width="352" CaretBrush="#FF6866F7"/>
+            <TextBox x:Name="TextBoxNumerodetelephone" Grid.Row="8" Margin="20,0,0,0" materialDesign:HintAssist.Hint="Numéro de téléphone (+213)"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Height="38"  TextWrapping="Wrap" VerticalAlignment="Top" Width="352" CaretBrush="#FF6866F7"/>
+
+            <TextBlock Grid.Row="9" VerticalAlignment="Center" Foreground="#FF6866F7" HorizontalAlignment="Center" Text="En créant votre nouveau compte,vous acceptez " FontWeight="Light" FontFamily="LemonMilk" Margin="70,16"/>
+
+            <TextBlock  PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown" Grid.Row="9" VerticalAlignment="Center" Foreground="#FF6866F7" HorizontalAlignment="Center"  FontWeight="Light" FontFamily="LemonMilk" Margin="140,31,140,1">           
+                <Hyperlink NavigateUri="http://www.google.com"  >
+                     les termes d'utilisation
+                </Hyperlink>
+            </TextBlock>
+            <WrapPanel Orientation="Vertical" Margin="20,0,0,0" VerticalAlignment="Center" Grid.Row="6">
+                <TextBox Name="profilePicTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="38" Width="310" TextWrapping="NoWrap" materialDesign:HintAssist.Hint="le chemin de la photo de profil"/>
+                <ListBox Margin="10,0,0,0" PreviewMouseDown="LoadProfilePictureEvent" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" Foreground="#FF6866F7">
+                    <materialDesign:PackIcon Width="25" Height="25" Kind="ImagePlus"/>
+                </ListBox>
+            </WrapPanel>
+            <Border 
+ Grid.Row="11" x:Name="ButtonCreercompte" MouseLeftButtonDown="ButtonCreercompte_MouseLeftButtonDown"  CornerRadius="20" Width="144" Height="36"  Background="#FF6866F7" VerticalAlignment="Center" Cursor="Hand" Margin="128,5,128,6">
+                <Border.OpacityMask>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Border         Background="Black"   SnapsToDevicePixels="True"    CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}"
+                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}"
+                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}"
+                    />
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Border.OpacityMask>
+                <TextBlock VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Text="Créer le compte" FontWeight="Light" FontFamily="LemonMilk"/>
+            </Border>
+            
+        </Grid>
+    </materialDesign:Card>
+</UserControl>

@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="Projet2Cpi.Taches"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:Projet2Cpi"
+            mc:Ignorable="d"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal" 
+            TextOptions.TextRenderingMode="Auto"        
+            Background="{DynamicResource MaterialDesignPaper}"
+            
+             FontFamily="{DynamicResource MaterialDesignFont}"
+            >
+    <StackPanel  Height="655" Width="1000" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        <Canvas Margin="40,0,0,0" VerticalAlignment="Top" Height="145">
+            <TextBlock x:Name="titrePage" Text="Tâches" FontSize="27" FontWeight="DemiBold" Margin="0,17,0,0" Height="49"/>
+            <WrapPanel Canvas.Top="80" Orientation="Horizontal" Height="40">
+                <Border x:Name="BoutonGaucheTacheEvenement" Cursor="Hand" Mouse.MouseEnter="BoutonTacheEvenement_MouseEnter" Mouse.MouseLeave="BoutonTacheEvenement_MouseLeave" MouseLeftButtonDown="BoutonGaucheTacheEvenement_MouseLeftButtonDown" CornerRadius="20,0,0,20" Width="72" Height="36" Background="#FF283593">
+                    <Border.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Background="Black" SnapsToDevicePixels="True" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}" Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.OpacityMask>
+                    <TextBlock VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Text="Tâche" FontWeight="Light" FontFamily="LemonMilk"/>
+                </Border>
+                <Border x:Name="BoutonDroitTacheEvenement" Cursor="Hand" Mouse.MouseEnter="BoutonTacheEvenement_MouseEnter" Mouse.MouseLeave="BoutonTacheEvenement_MouseLeave" MouseLeftButtonDown="BoutonDroitTacheEvenement_MouseLeftButtonDown"  CornerRadius="0,20,20,0" Width="72" Height="36" Background="White">
+                    <Border.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Background="Black" SnapsToDevicePixels="True" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}" Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.OpacityMask>
+                    <TextBlock VerticalAlignment="Center" Foreground="#FF6866F7" HorizontalAlignment="Center" Text="Evénements" FontWeight="Light" FontFamily="LemonMilk"/>
+                </Border>
+                <Border x:Name="BoutonGaucheJourSemaine" Cursor="Hand" Margin="20 0 0 0" Mouse.MouseEnter="BoutonTacheEvenement_MouseEnter" Mouse.MouseLeave="BoutonTacheEvenement_MouseLeave" MouseLeftButtonDown="BoutonGaucheJourSemaine_MouseLeftButtonDown" CornerRadius="20,0,0,20" Width="72" Height="36" Background="#FF283593">
+                    <Border.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Background="Black" SnapsToDevicePixels="True" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}" Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.OpacityMask>
+                    <TextBlock VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Text="Jour" FontWeight="Light" FontFamily="LemonMilk"/>
+                </Border>
+                <Border x:Name="BoutonDroitJourSemaine" Cursor="Hand" Mouse.MouseEnter="BoutonTacheEvenement_MouseEnter" Mouse.MouseLeave="BoutonTacheEvenement_MouseLeave" MouseLeftButtonDown="BoutonDroitJourSemaine_MouseLeftButtonDown"  CornerRadius="0,20,20,0" Width="72" Height="36" Background="White" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                    <Border.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Background="Black" SnapsToDevicePixels="True" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}" Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.OpacityMask>
+                    <TextBlock VerticalAlignment="Center" Foreground="#FF6866F7" HorizontalAlignment="Center" Text="Semaine" FontWeight="Light" FontFamily="LemonMilk"/>
+                </Border>
+                <local:TacheMonthSelectControl x:Name="TachemonthYearSelectRegion" Margin="50,0,0,0" Height="50"/>
+                <TextBlock FontSize="16" Text="Trier par" Height="22" Width="76" Margin="0 5 0 0"/>
+                <ComboBox Name="orderSelect" Margin="20,0,0,0" VerticalAlignment="Center" materialDesign:ComboBoxAssist.ClassicMode="{Binding IsChecked, ElementName=ClassicModeCheckBox}" HorizontalAlignment="Left" SelectionChanged="orderSelect_SelectionChanged">
+                    <ComboBoxItem Cursor="Hand" IsSelected="True" Content="Date"/>
+                    <ComboBoxItem Cursor="Hand" Content="Prioritee"/>
+                </ComboBox>
+            </WrapPanel>
+        </Canvas>
+        <ScrollViewer Padding="5" Name="jourSemainField" Margin="15,0,10,0" VerticalAlignment="Bottom" Height="485" HorizontalScrollBarVisibility="Auto"/>
+    </StackPanel>
+</UserControl>

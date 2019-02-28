@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Projet2Cpi.MonthSelectControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mt="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Projet2Cpi"
+             Height="36" Width="294"
+             mc:Ignorable="d"
+             Background="White"
+             d:DesignHeight="36" d:DesignWidth="290">
+    <Grid>
+        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBoxItem HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" PreviewMouseDown="LastMonth">
+                <mt:PackIcon Kind="ChevronLeft"/>
+            </ListBoxItem>
+            <ListBoxItem HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center">
+                <ComboBox HorizontalContentAlignment="Center" Name="monthSelect" Width="99">
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="janvier"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="février"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="mars"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="avril"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="mai"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="juin"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="juilet"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="août"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="septembre"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="octobre"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="novembre"/>
+                    <ComboBoxItem Height="36" HorizontalContentAlignment="Center" Content="decembre"/>
+                </ComboBox>
+            </ListBoxItem>
+            <ListBoxItem HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center">
+                <ComboBox HorizontalContentAlignment="Center" Name="yearSelect" Width="99"/>
+            </ListBoxItem>
+            <ListBoxItem HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" PreviewMouseDown="NextMonth">
+                <mt:PackIcon Kind="ChevronRight"/>
+            </ListBoxItem>
+        </ListBox>
+    </Grid>
+</UserControl>

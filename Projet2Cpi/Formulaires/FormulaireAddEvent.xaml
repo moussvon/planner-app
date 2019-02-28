@@ -1,0 +1,189 @@
+﻿<UserControl x:Class="Projet2Cpi.FormulaireAddEvent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projet2Cpi"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"        
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="600" d:DesignWidth="400">
+    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="White" Height="800">
+
+        <Grid HorizontalAlignment="Center" Height="600" VerticalAlignment="Top" Width="400">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.7"/>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.6*"/>
+            </Grid.RowDefinitions>
+
+            <!--Label: Ajouter un évènement-->
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" Height="24" Margin="20,10,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="236" FontSize="18" FontWeight="DemiBold" Foreground="#FF6866F7">
+                Ajouter un événement
+            </TextBlock>
+
+            <TextBox x:Name="TextboxTitre"   Grid.Row="1" Margin="20,-5,0,0"  materialDesign:HintAssist.Hint="Titre"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Height="37.927"  TextWrapping="Wrap" VerticalAlignment="Center" Width="352" CaretBrush="#FF6866F7"/>
+            <TextBox x:Name="TextBoxDescription"  Grid.Row="2"  Margin="20,-5,0,0" materialDesign:HintAssist.Hint="Description"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Height="38.594" TextWrapping="Wrap" VerticalAlignment="Center" Width="352" CaretBrush="#FF6866F7"/>
+            <TextBox x:Name="TextBoxLieu" Grid.Row="3" Margin="20,-5,0,0" 
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left"   TextWrapping="Wrap" VerticalAlignment="Center" CaretBrush="#FF6866F7" Width="352">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="MapMarker" Foreground="Black" />
+                        <TextBlock Text="Lieu d'événement" Margin="5,0,0,0"/>
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+
+            <!--Ajout des fichiers-->
+            <materialDesign:Card x:Name="AddfilesCard" Grid.Row="4" Grid.RowSpan="3" Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth1"  Height="80" Width="360" Visibility="Visible" VerticalAlignment="Center">
+                <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <materialDesign:PackIcon x:Name="Importfile" Cursor="Hand" MouseLeftButtonDown="Importfile_MouseLeftButtonDown"  Kind="FileImport" Height="40" Width="70" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="#FF6866F7" Foreground="#DD6866F7" />
+                    <TextBlock x:Name="Textboxaddfile"  Margin="0 10 0 0" HorizontalAlignment="Center" TextAlignment="Center" Height="16" VerticalAlignment="Center" Width="300" FontSize="10" FontWeight="Bold" Opacity="0.6">
+                        Ajouter un fichier ici
+                    </TextBlock>
+                </WrapPanel>
+            </materialDesign:Card>
+            <materialDesign:Card  x:Name="FilesChipsCard" Grid.Row="4" Grid.RowSpan="3" Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth1"  Height="80" Width="360" VerticalAlignment="Center" Visibility="Hidden">
+                <WrapPanel Orientation="Horizontal" Margin="5,0,0,0" VerticalAlignment="Center">
+                    <materialDesign:Chip x:Name="File1" Margin="5,0,0,0" Content="Chap3-les intégrales" FontSize="11" Height="30" Width="100"   IsDeletable="True"   ToolTip="This is an example chip"  Foreground="#FF6866F7" Visibility="Hidden" DeleteClick="File1_DeleteClick"></materialDesign:Chip>
+                    <materialDesign:Chip x:Name="File2" Margin="10,0,0,0" Content="Serie 3-Les intégrales" FontSize="11"  Height="30" Width="100"   IsDeletable="True"   ToolTip="This is an example chip" Foreground="#FF6866F7" Visibility="Hidden" DeleteClick="File2_DeleteClick"></materialDesign:Chip>
+                    <materialDesign:Chip x:Name="File3" Margin="10,0,0,0" Content="Serie 3-Les intégrales" FontSize="11"  Height="30" Width="100"   IsDeletable="True"   ToolTip="This is an example chip" Foreground="#FF6866F7" Visibility="Hidden" DeleteClick="File3_DeleteClick"></materialDesign:Chip>
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <!--Les jours de l'évenement et l'heure de debut-->
+            <WrapPanel Grid.Row="7" Orientation="Horizontal" >
+                <DatePicker Name="debutDatePicker" Margin="20,10,10,0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" materialDesign:HintAssist.Hint="Début :" BorderBrush="#FF6866F7"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+                <DatePicker Name="finDatePicker" Margin="10,10,10,0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" materialDesign:HintAssist.Hint="Fin :" BorderBrush="#FF6866F7"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+                <materialDesign:TimePicker Name="Heure" Margin="10,10,10,0" VerticalAlignment="Top" Width="100" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Heure :" BorderBrush="#FF6866F7" />
+            </WrapPanel>
+
+            <!--Priorité et activité-->
+            <WrapPanel Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Center" Margin="0 -10 0 0">
+
+                <!--Les priorités-->
+                <ComboBox x:Name="ComboBoxPriorite" Margin="20,0,0,5" materialDesign:HintAssist.Hint="Priorité :"  Style="{StaticResource MaterialDesignFloatingHintComboBox}"  Width="100" BorderBrush="#FF6866F7">
+                    <ComboBoxItem Height="30">
+                        <WrapPanel>
+                            <materialDesign:PackIcon Kind="CheckboxBlankCircle" Margin="0,0,0,0" Foreground="#DDFF0707" Width="10"  />
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Margin="5,0,0,0" Text="Urgent" FontSize="12" />
+                        </WrapPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem Height="30">
+                        <WrapPanel >
+                            <materialDesign:PackIcon Kind="CheckboxBlankCircle" Margin="0,0,0,0" Foreground="#DDF4FF07" Width="10"  />
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Margin="5,0,0,0" Text="Normal" FontSize="12" />
+                        </WrapPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem Height="30">
+                        <WrapPanel>
+                            <materialDesign:PackIcon Kind="CheckboxBlankCircle" Margin="0,0,0,0" Foreground="#DD64CEFF" Width="10" />
+                            <TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" Text="Bas"  FontSize="12"/>
+                        </WrapPanel>
+                    </ComboBoxItem>
+                </ComboBox>
+
+
+                <!--Activités-->
+                <ComboBox x:Name="ComboBoxActivities"  Margin="20,0,0,5" materialDesign:HintAssist.Hint="Activité :" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Center" Width="100" BorderBrush="#FF6866F7"></ComboBox>
+
+
+                <!--Etat du l'évènement ( c est bien si on change les mots d'états pour un évènemnet)-->
+                <ComboBox x:Name="ComboBoxEtatdutache"  Margin="20,0,0,5" materialDesign:HintAssist.Hint="Etat :"  Style="{StaticResource MaterialDesignFloatingHintComboBox}"  Width="100" HorizontalAlignment="Center" BorderBrush="#FF6866F7">
+                    <ComboBoxItem Content="Non réalisé"/>
+                    <ComboBoxItem Content="En cours"/>
+                    <ComboBoxItem Content="Terminé" IsEnabled="False"/>
+                </ComboBox>
+            </WrapPanel>
+
+
+            <TextBlock Grid.Row="9" Margin="20,0,0,0" HorizontalAlignment="Left" Height="17" TextWrapping="Wrap" VerticalAlignment="Center" Width="154" FontWeight="DemiBold" Foreground="#FF6866F7"><Run Text="Ajouter des personnes"/><Run Text=" :"/></TextBlock>
+            <TextBox Grid.Row="10" Keyboard.KeyDown="CommentTextBox_KeyDown" Margin="20,0,0,0" x:Name="CommentTextBox" materialDesign:HintAssist.Hint="Tapez le nom de la personne" HorizontalAlignment="Left" Height="25.261" TextWrapping="Wrap" VerticalAlignment="Center" Width="340" CaretBrush="#FF6866F7"/>
+            <ScrollViewer Grid.Row="11" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="20,0,30,0">
+                <WrapPanel  Name="chips" Margin="0 0 10 0"/>
+            </ScrollViewer>
+
+            <!--Les Alarmes-->
+            <TextBlock Grid.Row="12" Margin="20,0,0,0" HorizontalAlignment="Left" Height="16.599" TextWrapping="Wrap" VerticalAlignment="Center" Width="136.334" Foreground="#FF6866F7" FontWeight="DemiBold" Text="Alarmes :" />
+
+            <!--Alarme1-->
+            <WrapPanel x:Name="AlarmWrapPanel1"  Grid.Row="13"  Orientation="Horizontal" Margin="0 -10 0 0">
+                <ComboBox x:Name="ComboBoxAlarmType"  Margin="20,0,0,0" materialDesign:HintAssist.Hint="Type" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" BorderBrush="#FF6866F7">
+                    <ComboBoxItem x:Name="ComboitemEmail1" Height="35" Visibility="Visible" >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="EmailOutline" Margin="0,0,0,0" Foreground="#FF6866F7" Width="12" />
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Margin="5,0,0,0" Text="Par Email" FontSize="12" />
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem x:Name="ComboitemSMS1" Height="35" Visibility="Visible" >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="MessageOutline" Margin="0,0,0,0" Foreground="#FF6866F7" Width="12" />
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Margin="5,0,0,0" Text="Par SMS" FontSize="12" />
+                        </StackPanel>
+                    </ComboBoxItem>
+                </ComboBox>
+                <DatePicker x:Name="DatePickeralarm"  Margin="10,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" materialDesign:HintAssist.Hint="Date :" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" BorderBrush="#FF6866F7"/>
+                <materialDesign:TimePicker x:Name="TimePickeralarm"  Margin="10,15,0,0" Width="100" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="Heure :" BorderBrush="#FF6866F7" />
+                <materialDesign:PackIcon x:Name="AddAlarme1" Cursor="Hand" MouseLeftButtonDown="AddAlarme"  Margin="7,18,0,0" Kind="AlarmPlus" Height="23" Width="24" Foreground="#FF6866F7" Visibility="Visible" />
+
+            </WrapPanel>
+            <ScrollViewer Grid.Row="14" Grid.RowSpan="2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="20,0,30,0">
+                <WrapPanel  HorizontalAlignment="Center" Name="alarmeChipsField" Margin="10 0 10 0"/>
+            </ScrollViewer>
+            <WrapPanel Grid.Row="16" HorizontalAlignment="Right" VerticalAlignment="Center" >
+                <Border   x:Name="ButtonAddEvent" Margin="0,2,10,0" Cursor="Hand" MouseLeftButtonDown="AddEvent" CornerRadius="16" Width="139" Height="30"  Background="#FF6866F7" VerticalAlignment="Center">
+                    <Border.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border         Background="Black"   SnapsToDevicePixels="True"    CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}"     Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}"   Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}"     />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.OpacityMask>
+                    <TextBlock VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Text="Ajouter l'événement" FontWeight="Light" FontFamily="LemonMilk"/>
+                </Border>
+                <Border   x:Name="ButtonCancel" Margin="0,2,10,0" Cursor="Hand" MouseLeftButtonDown="ButtonCancel_MouseLeftButtonDown"  CornerRadius="16" Width="100" Height="30"  Background="#E6E6FA" VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+                    <Border.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border         Background="Black"   SnapsToDevicePixels="True"    CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}"     Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}"   Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}"     />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.OpacityMask>
+                    <TextBlock VerticalAlignment="Center" Foreground="#FF6866F7" HorizontalAlignment="Center" Text="Annuler" FontWeight="Light" FontFamily="LemonMilk"/>
+                </Border>
+
+
+                <!--<Button Margin="0,0,10,0" Style="{StaticResource MaterialDesignRaisedButton}" Width="150" ToolTip="Resource name: MaterialDesignRaisedButton" BorderBrush="#FF6866F7" Background="#FF6866F7" Height="30">
+                    Creer l'évènement
+                </Button>
+                <Button x:Name="bouttonAnnulerAddEvent" Click="bouttonAnnulerAddEvent_Click"  Margin="0,0,20,0" Width="100" Background="#FFA4A4A4" BorderBrush="#FF9181AE" Height="30">
+                    Annuler
+                </Button>-->
+            </WrapPanel>
+        </Grid>
+    </materialDesign:Card>
+</UserControl>

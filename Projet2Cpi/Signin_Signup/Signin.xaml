@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Projet2Cpi.Signin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Projet2Cpi"
+             mc:Ignorable="d"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"        
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             Height="250" Width="400"  Visibility="Visible" >
+
+    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="400" Height="250" >
+
+        <Grid HorizontalAlignment="Center" Height="250"  Width="400" Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.6*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="1.2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <!--Label :  Connectez à votre compte-->
+            <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="27" TextWrapping="Wrap" Width="236" FontSize="16" FontWeight="Medium" Foreground="#FF6866F7" Text="Connectez vous :"/>
+
+            <!--le nom d'utilisateur-->
+            <TextBox Keyboard.KeyDown="PasswordBoxMotdepasseVisible_KeyDown" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="TextBoxNomdutilisateur" Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Nom d'utilisateur"
+                    HorizontalAlignment="Stretch" Height="35" TextWrapping="Wrap" VerticalAlignment="Center" CaretBrush="#FF6866F7"/>
+            <!--Son mot de passe-->
+            <TextBox x:Name="PasswordBoxMotdepasseVisible" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Keyboard.KeyDown="PasswordBoxMotdepasseVisible_KeyDown" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" materialDesign:HintAssist.Hint="Mot de passe" 
+                    HorizontalAlignment="Stretch" Margin="20,0,10,0" Height="35" VerticalAlignment="Center" CaretBrush="#FF6866F7" Visibility="Hidden"/>
+            <PasswordBox Keyboard.KeyDown="PasswordBoxMotdepasseVisible_KeyDown" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" x:Name="PasswordBoxMotdepasseInvisible" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" materialDesign:HintAssist.Hint="Mot de passe" 
+                    HorizontalAlignment="Stretch" Margin="20,0,10,0" Height="35" VerticalAlignment="Center" CaretBrush="#FF6866F7" />
+            <ToggleButton Name="passwordVisibilityTB" ToggleButton.Checked="ToggleButton_Checked" ToggleButton.Unchecked="ToggleButton_Unchecked"  IsChecked="False" Grid.Row="2" Grid.Column="1" Margin="0,0,20,0" Width="50" Height="35" Background="White" Foreground="#FF6866F7" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignActionToggleButton}">
+                <ToggleButton.Content>
+                    <materialDesign:PackIcon Kind="EyeOff"/>
+                </ToggleButton.Content>
+                <materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon Kind="Eye"/>
+                </materialDesign:ToggleButtonAssist.OnContent>
+            </ToggleButton>
+            <Border  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ButtonConnectez" Cursor="Hand" PreviewMouseLeftButtonDown="SigninEvent"  CornerRadius="20" Width="144" Height="36"  Background="#FF6866F7" VerticalAlignment="Center">
+                <Border.OpacityMask>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Border         Background="Black"   SnapsToDevicePixels="True"    CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}"
+                    Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}"
+                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}"
+                    />
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Border.OpacityMask>
+                <TextBlock VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Text="Connectez" FontWeight="Light" FontFamily="LemonMilk"/>
+            </Border>
+        </Grid>
+    </materialDesign:Card>
+</UserControl>

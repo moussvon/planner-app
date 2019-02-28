@@ -1,0 +1,180 @@
+﻿<UserControl x:Class="Projet2Cpi.AppSettings"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:Projet2Cpi"
+            mc:Ignorable="d"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal" 
+            TextOptions.TextRenderingMode="Auto"        
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+            d:DesignHeight="630" d:DesignWidth="1013">
+    <StackPanel Width="1013" Height="630">
+        <TextBlock  Text="Configurations" FontSize="23" FontWeight="Medium" Margin="10,5,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <materialDesign:Card Margin="10" x:Name="Configuration_general" Background="#ffffff" Width="950" HorizontalAlignment="Center"  VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth2" Height="180">
+            <StackPanel>
+                <TextBlock  Text="Configuration générale" FontSize="23" FontWeight="Medium" Margin="10,5,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Orientation="Horizontal" Grid.Row="1" Margin="20,0,0,0">
+                    <TextBlock Margin="10" Width="200" Text="La priorité par défaut:" FontSize="16" FontWeight="Medium" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <ComboBox Margin="10" x:Name="ComboBoxActivities" materialDesign:HintAssist.Hint="Activité" Width="100" BorderBrush="#FF6866F7"/>
+                    <ComboBox Margin="10" x:Name="ComboBoxeventtask" materialDesign:HintAssist.Hint="Genre" Width="100" BorderBrush="#FF6866F7">
+                        <ComboBoxItem x:Name="Event" Height="35" Content="Tache"/>
+                        <ComboBoxItem x:Name="Task" Height="35" Content="Evenement"/>
+                    </ComboBox>
+                    <ComboBox Margin="10" x:Name="ComboBoxPriorité" materialDesign:HintAssist.Hint="Priorité" Width="100" BorderBrush="#FF6866F7">
+                        <ComboBoxItem Height="30">
+                            <WrapPanel>
+                                <materialDesign:PackIcon Kind="CheckboxBlankCircle" Margin="0,0,0,0" Foreground="#DDFF0707" Width="10"  />
+                                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Margin="5,0,0,0" Text="Urgente" FontSize="12" />
+                            </WrapPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem Height="30">
+                            <WrapPanel>
+                                <materialDesign:PackIcon Kind="CheckboxBlankCircle" Margin="0,0,0,0" Foreground="#DDF4FF07" Width="10"  />
+                                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Margin="5,0,0,0" Text="Normale" FontSize="12" />
+                            </WrapPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem Height="30">
+                            <WrapPanel>
+                                <materialDesign:PackIcon Kind="CheckboxBlankCircle" Margin="0,0,0,0" Foreground="#DD64CEFF" Width="10" />
+                                <TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" Text="Basse"  FontSize="12"/>
+                            </WrapPanel>
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <Border Margin="10" x:Name="ButtonEnregisrerpriorite" Cursor="Hand" CornerRadius="15" Width="100" Height="32" Background="#FF6866F7">
+                        <Border.OpacityMask>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Border         Background="Black"   SnapsToDevicePixels="True"    CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"     Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"   Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"     />
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Border.OpacityMask>
+                        <TextBlock VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Text="Enregistrer" FontWeight="Light" FontFamily="LemonMilk"/>
+                    </Border>
+                </WrapPanel>
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="3" Margin="20,0,0,0">
+                    <TextBlock Margin="10" Width="200" Text="La notification par défaut:" FontSize="16" FontWeight="Medium" VerticalAlignment="Center"/>
+                    <ComboBox Margin="10" x:Name="ComboBoxNotifiActivitie" materialDesign:HintAssist.Hint="Activité" Width="100" BorderBrush="#FF6866F7"/>
+                    <ComboBox Margin="10" x:Name="ComboBoxNotieventtask" materialDesign:HintAssist.Hint="Genre" Width="100" BorderBrush="#FF6866F7">
+                        <ComboBoxItem Height="35" Content="Tache"/>
+                        <ComboBoxItem Height="35" Content="Evenement"/>
+                    </ComboBox>
+                    <ComboBox Margin="10" x:Name="ComboBoxAlarmType" materialDesign:HintAssist.Hint="Type" Width="100" BorderBrush="#FF6866F7">
+                        <ComboBoxItem HorizontalAlignment="Stretch" x:Name="ComboitemEmail" Height="30" Visibility="Visible" >
+                            <WrapPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                                <materialDesign:PackIcon HorizontalAlignment="Left" VerticalAlignment="Center" Kind="EmailOutline" Foreground="#FF6866F7" Width="20" />
+                                <TextBlock HorizontalAlignment="Right" Margin="10,0,0,0" TextWrapping="Wrap" Text="Par Email" FontSize="16" />
+                            </WrapPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem x:Name="ComboitemSMS" Height="35" Visibility="Visible" >
+                            <WrapPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                                <materialDesign:PackIcon HorizontalAlignment="Left" VerticalAlignment="Center" Kind="MessageOutline" Foreground="#FF6866F7" Width="20" />
+                                <TextBlock HorizontalAlignment="Right" Margin="10,0,0,0" TextWrapping="Wrap" Text="Par SMS" FontSize="16" />
+                            </WrapPanel>
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <Border Margin="10" Cursor="Hand" CornerRadius="15" Width="100" Height="32"  Background="#FF6866F7" VerticalAlignment="Center">
+                        <Border.OpacityMask>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Border         Background="Black"   SnapsToDevicePixels="True"    CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"     Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"   Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"     />
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Border.OpacityMask>
+                        <TextBlock VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Text="Enregistrer" FontWeight="Light" FontFamily="LemonMilk"/>
+                    </Border>
+
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Margin="10" x:Name="Configuration_user" Background="#ffffff"  Width="950" HorizontalAlignment="Center"  VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth2" Height="280">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock  Text="Configuration d'utilisateur" FontSize="23" FontWeight="Medium" Margin="10,5,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="TextBoxFirstName" Grid.Row="1" materialDesign:HintAssist.Hint="Prénom" HorizontalAlignment="Center" Height="38"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" CaretBrush="#FF6866F7" BorderBrush="#FF6866F7"/>
+                <TextBox Grid.Column="1" x:Name="TextBoxSecondName" Grid.Row="1" materialDesign:HintAssist.Hint="Nom" HorizontalAlignment="Center" Height="38"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" CaretBrush="#FF6866F7" BorderBrush="#FF6866F7"/>
+                <TextBox x:Name="TextBoxEmail" Grid.Row="2" materialDesign:HintAssist.Hint="Email" HorizontalAlignment="Center" Height="38"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" CaretBrush="#FF6866F7" BorderBrush="#FF6866F7" />
+                <TextBox x:Name="TextBoxPhonenumber" Grid.Row="3" materialDesign:HintAssist.Hint="Numéro de téléphone" HorizontalAlignment="Center" Height="38"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" CaretBrush="#FF6866F7" BorderBrush="#FF6866F7" />
+                <Border Grid.Row="4" Grid.ColumnSpan="2" x:Name="ButtonEnregisrerUserInfos" Margin="20,0,0,0" Cursor="Hand"  CornerRadius="15" Width="100" Height="32"  Background="#FF6866F7" VerticalAlignment="Center" MouseDown="RegisterData">
+                    <Border.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Background="Black"   SnapsToDevicePixels="True"    CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"     Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"   Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"     />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.OpacityMask>
+                    <TextBlock VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Text="Enregistrer" FontWeight="Light" FontFamily="LemonMilk"/>
+                </Border>
+
+                <StackPanel Orientation="Vertical" Grid.RowSpan="5" Height="250" VerticalAlignment="Center" Grid.Column="3" Margin="0,0,0,0">
+                    <Grid  Grid.RowSpan="4" Height="200"  Grid.Column="2" Margin="0,0,0,-60">
+                        <Border materialDesign:RippleAssist.IsDisabled="True" CornerRadius="120" Width="120" Height="130" Margin="0,0,0,0" Background="White">
+                            <Border.OpacityMask>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Border Background="Black" SnapsToDevicePixels="True" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type Border}}}" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Border}}}" Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.OpacityMask>
+                            <Ellipse x:Name="Shadow" Fill="#FF6866F7" Height="120" Width="120"  Opacity="0.4"/>
+                        </Border>
+                        <Border materialDesign:RippleAssist.IsDisabled="True" CornerRadius="110" Width="110" Height="110" Margin="0,0,0,0" Background="White">
+                            <Border.OpacityMask>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Border Background="Black" SnapsToDevicePixels="True" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type Border}}}" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Border}}}" Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.OpacityMask>
+                            <Image x:Name="profilePic" Margin="0" Width="110" Height="110" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Border>
+                    </Grid>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0">
+                        <Border MouseDown="ChoosePicture" x:Name="ButtonUploadImage" Margin="0,30,0,0" Cursor="Hand"   CornerRadius="15" Width="100" Height="32"  Background="#E6E6FA" VerticalAlignment="Center">
+                            <Border.OpacityMask>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Border         Background="Black"   SnapsToDevicePixels="True"    CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"     Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"   Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"     />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.OpacityMask>
+                            <TextBlock VerticalAlignment="Center" Foreground="#FF6866F7" HorizontalAlignment="Center" Text="Changer" FontWeight="Light" FontFamily="Roboto"/>
+                        </Border>
+                        <Border MouseDown="SavePicture" x:Name="ButtonEnregisrerUserPic" Margin="10,30,10,0" Cursor="Hand"   CornerRadius="15" Width="100" Height="32"  Background="#FF6866F7" VerticalAlignment="Center">
+                            <Border.OpacityMask>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Border         Background="Black"   SnapsToDevicePixels="True"    CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"     Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"   Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"     />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.OpacityMask>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Text="Enregistrer" FontWeight="Light" FontFamily="Roboto"/>
+                        </Border>
+
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+
+        </materialDesign:Card>
+
+
+    </StackPanel>
+</UserControl>

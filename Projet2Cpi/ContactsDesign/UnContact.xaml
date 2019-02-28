@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="Projet2Cpi.UnContact"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projet2Cpi"
+             mc:Ignorable="d" 
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal" 
+            TextOptions.TextRenderingMode="Auto"        
+            Background="{DynamicResource MaterialDesignPaper}"
+            
+            FontFamily="{DynamicResource MaterialDesignFont}"
+            d:DesignHeight="530" d:DesignWidth="460">
+
+    <Grid Margin="0,10,0,0">
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth2" Height="250" Width="399" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Border materialDesign:RippleAssist.IsDisabled="False" CornerRadius="80" Width="140" Height="140" Margin="0,20,0,20" Background="White">
+                    <Border.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Background="Black" SnapsToDevicePixels="True" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}" Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.OpacityMask>
+                    <Image x:Name="photoDeProfilDuContact" Margin="0" Width="140" Height="140"/>
+                </Border>
+                <TextBlock HorizontalAlignment="Center" x:Name="NomDuContact" FontWeight="SemiBold" FontFamily="LemonMilk" FontSize="24"  />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <Button Cursor="Hand" x:Name="boutonAbout" Click="boutonAbout_Click" VerticalAlignment="Center" Content="A propos" Background="{x:Null}" Foreground="DarkSlateGray" BorderBrush="{x:Null}" FontWeight="Light" HorizontalAlignment="Center" Margin="0,0,80,0" Height="23"/>
+                    <Button Cursor="Hand" x:Name="boutonContacts" VerticalAlignment="Center" Click="boutonContacts_Click"  Content="Contacts" Background="{x:Null}" Foreground="DarkBlue" BorderBrush="{x:Null}" FontWeight="SemiBold" HorizontalAlignment="Center" Height="21"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Separator x:Name="sepAbout" VerticalAlignment="Top" Background="DarkSlateGray" HorizontalAlignment="Left" Width="60" Margin="0,-1,111,0"/>
+                    <Separator x:Name="sepContacts" VerticalAlignment="Top" Background="DarkBlue" HorizontalAlignment="Right" Width="56" Margin="0,-1,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="CardAbout" Visibility="Collapsed" Height="270" Width="399" materialDesign:ShadowAssist.ShadowDepth="Depth1" VerticalAlignment="Bottom" Margin="0,0,0,3">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,30" HorizontalAlignment="Center">
+                    <Image x:Name="Cartable" Width="50" Margin="0,5,50,5"/>
+                    <StackPanel Orientation="Vertical" Width="200">
+                        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Text="Travail" FontWeight="DemiBold" FontFamily="LemonMilk" FontSize="17" Margin="0,24,0,0"/>
+                        <TextBlock x:Name="travail" VerticalAlignment="Center" HorizontalAlignment="Left"  FontWeight="Light" FontFamily="LemonMilk" FontSize="13" />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image x:Name="Adresse" Width="50" Margin="0,5,50,5"/>
+                    <StackPanel Orientation="Vertical" Width="200">
+                        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Text="Adresse" FontWeight="DemiBold" FontFamily="LemonMilk" FontSize="17" Margin="0,24,0,0"/>
+                        <TextBlock x:Name="adresseDuContact" VerticalAlignment="Center" HorizontalAlignment="Left"  FontWeight="Light" FontFamily="LemonMilk" FontSize="13" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+        </materialDesign:Card>
+        <materialDesign:Card x:Name="CardContacts"  Height="275" Width="399" materialDesign:ShadowAssist.ShadowDepth="Depth1" VerticalAlignment="Bottom" >
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image x:Name="Telephone" Width="50" Margin="0,5,50,5"/>
+                    <StackPanel Orientation="Vertical" Width="200">
+                        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Text="Numero de telephone" FontWeight="DemiBold" FontFamily="LemonMilk" FontSize="17" Margin="0,24,0,0"/>
+                        <TextBlock x:Name="numDeTelephone" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Light" FontFamily="LemonMilk" FontSize="13" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image x:Name="Fleche" Width="50" Margin="0,5,50,5"/>
+                    <StackPanel Orientation="Vertical" Width="200">
+                        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Text="Email" FontWeight="DemiBold" FontFamily="LemonMilk" FontSize="17" Margin="0,24,0,0"/>
+                        <TextBlock x:Name="emailContact" VerticalAlignment="Center" HorizontalAlignment="Left"  FontWeight="Light" FontFamily="LemonMilk" FontSize="13" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image x:Name="Monde" Width="50" Margin="0,5,50,5"/>
+                    <StackPanel Orientation="Vertical" Width="200">
+                        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Text="Site web" FontWeight="DemiBold" FontFamily="LemonMilk" FontSize="17" Margin="0,24,0,0"/>
+                        <TextBlock x:Name="siteWebContact" VerticalAlignment="Center" HorizontalAlignment="Left"  FontWeight="Light" FontFamily="LemonMilk" FontSize="13" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 0">
+                    <!--Boutons pour facebook et twitter...-->
+                    <Button Cursor="Hand" x:Name="twitterButton" Click="twitterButton_Click" Background="White" Margin="15,0,15,0" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Compte Twitter" Height="30" Width="30">
+                        <materialDesign:PackIcon Kind="Twitter" Height="20" Width="20" />
+                    </Button>
+                    <Button Cursor="Hand" x:Name="facebookButton" Click="facebookButton_Click" Background="White" Margin="15,0,15,0" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Compte Facebook" Height="30" Width="30">
+                        <materialDesign:PackIcon Kind="Facebook" Height="20" Width="20" />
+                    </Button>
+                    <Button Cursor="Hand" x:Name="linkedinButton" Click="linkedinButton_Click" Background="White" Margin="15,0,15,0" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Compte LinkedIn" Height="30" Width="30">
+                        <materialDesign:PackIcon Kind="Linkedin" Height="20" Width="20" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

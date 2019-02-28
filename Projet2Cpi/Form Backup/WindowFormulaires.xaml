@@ -1,0 +1,12 @@
+﻿<Window x:Class="Projet2Cpi.WindowFormulaires"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projet2Cpi"
+        mc:Ignorable="d"
+        Title="WindowFormulaires" Height="614" Width="405" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="gridPrincWinForm">
+        
+    </Grid>
+</Window>
